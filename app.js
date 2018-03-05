@@ -1,21 +1,11 @@
-const speed_test = require("src/spee_test");
+const server = require("./src/server");
+const speed_test = require("./src/speed_test");
 
+// Rerun speed test every 30 min.
+const test_interval = 1000 /* s */ 
+	* 60 /* min */ 
+	* 30 /* every 30 min */;
+setInterval(speed_test, test_interval);
 speed_test();
 
-// const express = require("express");
-
-// const app = express();
-// app.get('/', (req, res) => res.send('Hello World!'));
-
-// // 404 errors
-// app.use(function (req, res, next) {
-//   res.status(404).send("Sorry can't find that!");
-// })
-
-// // other errors
-// app.use(function (err, req, res, next) {
-//   console.error(err.stack);
-//   res.status(500).send('Something broke!');
-// })
-
-// app.listen(3000, () => console.log('Example app listening on port 3000!'));
+server();

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Speed!</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+		}
+
+		html {
+			width: 100%;
+		}
+
+		body {
+			width: 80%;
+			padding: 1rem;
+			margin: 0 auto;
+		}
+
+		#speed_chart {
+			width: 800px;
+			height: 800px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="speed_chart" width="800" height="400"></canvas>
+	<script>
+	var ctx = document.getElementById("speed_chart").getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: {{LABELS}},
+			datasets: [{
+				label: "Fast.com speed",
+				backgroundColor: "rgb(255, 93, 120)",
+				borderColor: "rgb(255, 93, 120)",
+				data: {{SPEEDS}},
+				fill: false
+			}]
+		},
+		options: {
+			responsive: true,
+			title: {
+				display: true,
+				text: "Internet Speed"
+			},
+			tooltips: {
+				mode: 'index',
+				intersect: false
+			},
+			hover: {
+				mode: 'nearest',
+				intresect: true
+			},
+			scales: {
+				xAxes: [{
+					display: true,
+					scaleLabel: {
+						display: true,
+						labelString: 'Measurement time'
+					}
+				}],
+				yAxes: [{
+					display: true,
+					scaleLabel: {
+						display: true,
+						labelString: 'Speed (Mbps)'
+					},
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	});
+	</script>
+</body>
+</html>

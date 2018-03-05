@@ -5,5 +5,5 @@ module.exports = function() {
 	let data = {};
 	return fast()
 		.forEach((result) => data = result)
-		.then(() => { speed: data.speed, unit: data.unit });
+		.then(() => { return { speed: data.speed, unit: data.unit } });
 }
