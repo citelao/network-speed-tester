@@ -49,5 +49,6 @@ module.exports = function() {
 	  res.status(500).send('Something broke!');
 	})
 
-	app.listen(3000, () => console.log('Speed observer server listening on port 3000!'));
+	const port = process.env.PORT || 3000;
+	app.listen(port, () => console.log(`Speed observer server listening on port ${port}!`));
 }
