@@ -9,6 +9,8 @@
 - `sudo apt-get update && sudo apt-get upgrade`
 - Install Node (`sudo apt-get install nodejs npm`; you may need to add the nodesource builds: `curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -`)
 - Install Avahi (bonjour: `sudo apt-get install avahi-daemon`)
+- Forward port 80 to 3000: `sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000
+` (via https://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode and https://coderwall.com/p/plejka/forward-port-80-to-port-3000). You may want to add this without the sudo to `/etc/rc.local` to happen on boot.
 - `npm start`
 
 # Set up wifi
