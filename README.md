@@ -28,3 +28,7 @@ https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
 	```
 4. Reconfigure interface: `wpa_cli -i wlan0 reconfigure`
 5. Successful iff `ifconfig wlan0` has an IP.
+
+# Auto-start
+
+I use a custom `rc.local` (see `rc.local.deployme`).
